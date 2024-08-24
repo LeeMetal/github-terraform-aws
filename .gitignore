@@ -20,3 +20,11 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+
+*.suo
+*.user
+-ReSharper.*
+Bin
+bin
+Obj
+obj
