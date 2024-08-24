@@ -1,0 +1,43 @@
+  First was crated a public repository in the github. I created
+a folder(infra) into the project to store (terraform) scripts.
+  Now a created the files(main.tf, variables.tf, provider.tf
+, backend.tf) and the environment folders with it's files.
+
+  Configura aws account to connect with github actions clicking
+(IAM -> Identity providers -> Add provider)
+  1-in (Provider type) select (OpenIDConnect)
+  2-in (Provider URL) use the url
+    (https://token.actions.githubusercontent.com) you can find
+    this url in the aws documentation.
+  3-audience use (sts.amazon.com)
+and click in (Add provider) now you can see tha table with the
+created provider now click in the provider link to get in it and
+click in the button (Assign role) select (Create a new role) and
+(Next), in the field (Trusted entity type) select (web Identity)
+, audience click and select the option (sts.amazon.com) now to 
+set (Github organization) you need to get your github url 
+in my case it was
+(https://github.com/LeeMetal/github-terraform-aws)
+and extract only(LeeMetal) to set in that field and if you want
+to increase secrurity you can fill in the fields (Github 
+repository and Github branch) now click in (Next). Now in the
+search bar (Permissions policies) type (s3) and select
+(AmazonS3FullAccess) and in my case i added to dynamodb typing
+(dynamodb) in the search bar and selecting 
+(AmazonDynamoDBFullAccess) now click in (Next) and name this
+role i named(role-github-terraform-aws) and click in (Create
+role).
+
+  Create manually the bucket to store the statefiles,
+click in (Create bucket) and i named it as
+(github-terraform-aws-bucket) and to maintain the versioning
+of the statefiles select (Enable) in the field (Bucket 
+Versioning) and click in (Create bucket).
+
+  the step bellow neeb creat only one time in one account to be 
+used for all pipelines in the same account.
+  Create a table in Dynamodb to lock changes concurrentes, get
+in dynamodb and click in left menu (Tables) and click in 
+(Create table) i named this table as (github-terraform-aws-lock)
+  1-in (Partition key) need be (LockID) cause dynamodb will 
+search for it, now click in create table.
