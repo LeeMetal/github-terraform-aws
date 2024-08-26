@@ -30,14 +30,18 @@ role).
 
   Create manually the bucket to store the statefiles,
 click in (Create bucket) and i named it as
-(github-terraform-aws-bucket) and to maintain the versioning
+(github-terraform-aws-bucket-test) and to maintain the versioning
 of the statefiles select (Enable) in the field (Bucket 
 Versioning) and click in (Create bucket).
 
-  the step bellow neeb creat only one time in one account to be 
+  the step bellow need creat only one time in one account to be 
 used for all pipelines in the same account.
   Create a table in Dynamodb to lock changes concurrentes, get
 in dynamodb and click in left menu (Tables) and click in 
 (Create table) i named this table as (github-terraform-aws-lock)
   1-in (Partition key) need be (LockID) cause dynamodb will 
 search for it, now click in create table.
+
+  Now I'm back to the project and created a folder called 
+(.github) into this folder a created (workflows) and into this
+folder create a file (terraform.yml)

@@ -1,0 +1,26 @@
+name: "DEV DEPLOY"
+
+on:
+  push:
+    branches:
+      - develop
+
+#Permission can be added at job level or workflow level
+permissions:
+  id-token: write #this is required for requesting the jwt
+  contents: read #this is required for action/checkout
+
+#the job below reference the file terraform.yml to set values
+#into your parameters
+jobs:
+  terraform:
+    uses: ./.github/workflows/terraform.yml
+    with:
+      environment: dev
+      #to get role name click in the role created and get it into
+      #(Summary -> ARN) copy the content
+      aws-assume-role-arn: "arn:aws:iam::557215208735:oidc-provider/token.actions.githubusercontent.com"
+      aws-region: "us-east-1"
+      aws-statefile-s3-bucket: "github-terraform-aws-bucket-test" #bucket name
+      aws-lock-dynamodb-table: "github-terraform-aws-lock" #dynamodb table name created
+#top here
