@@ -19,7 +19,7 @@ jobs:
       environment: dev
       #to get role name click in the role created and get it into
       #(Summary -> ARN) copy the content
-      aws-assume-role-arn: "arn:aws:iam::557215208735:role/role-github-terraform-aws"
+      aws-assume-role-arn: "arn:aws:iam::557215208735:oidc-provider/token.actions.githubusercontent.com"
       aws-region: "us-east-1"
       aws-statefile-s3-bucket: "github-terraform-aws-bucket-test" #bucket name
       aws-lock-dynamodb-table: "github-terraform-aws-lock" #dynamodb table name created
