@@ -6,7 +6,10 @@ a folder(infra) into the project to store (terraform) scripts.
   Configura aws account to connect with github actions clicking
 (IAM -> Identity providers -> Add provider)
   1-in (Provider type) select (OpenIDConnect)
-  2-in (Provider URL) use the url
+  2-in (Provider URL) you can find this url in the edress
+    (https://aws.amazon.com/pt/blogs/security/use-iam-roles
+    -to-connect-github-actions-to-actions-in-aws/) the url to
+    this field is
     (https://token.actions.githubusercontent.com) you can find
     this url in the aws documentation.
   3-audience use (sts.amazon.com)

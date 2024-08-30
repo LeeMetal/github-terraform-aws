@@ -43,7 +43,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v3 #he we use
         #aws credentials to execute the step
         with:
-          role-to-assume: ${{ inputs.aws-assume-role-arn }}
+          role-to-assume: ${{ inputs.aws-assume-role-arn }} #this data comes from develop.yml
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
           aws-region: ${{ inputs.aws-region }}
       
