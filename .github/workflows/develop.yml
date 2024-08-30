@@ -21,5 +21,5 @@ jobs:
       #(Summary -> ARN) copy the content
       aws-assume-role-arn: "arn:aws:iam::557215208735:role/my-IAC-role"
       aws-region: "us-east-1"
-      aws-statefile-s3-bucket: "dev-github-terraform-bucket" #bucket name
+      aws-statefile-s3-bucket: "github-terraform-aws-bucket-test" #bucket name
       aws-lock-dynamodb-table: "github-terraform-aws-lock" #dynamodb table name created
